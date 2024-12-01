@@ -24,24 +24,35 @@ body::before {
     background-image: url('TamDao.png');
     background-size: cover;
     background-position: center;
-    filter: blur(20px);
-    opacity: 0.7;
+    filter: blur(30px);
+    opacity: 0.64;
     z-index: -1;
     transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+/* Khi di chuột vào phần tử, làm rõ nền */
+body:hover::before {
+    filter: blur(0px);
+    opacity: 1;
+}
+
 /* Container của quiz */
 .quiz-container, #result-box {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 600px;
     text-align: center;
     border: 1px solid #ccc;
-    margin: 40px auto;
+    margin: 20px auto;
     color: white;
+}
+
+/* Ẩn các phần tử không cần thiết */
+.hidden {
+    display: none;
 }
 
 /* Phần tải trang */
@@ -51,16 +62,9 @@ body::before {
     color: #e6e6e6;
 }
 
-/* Tiêu đề */
-h1, .title {
-    font-size: 2rem;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 /* Nút */
 button {
-    padding: 12px 20px;
+    padding: 12px 24px;
     background: #ff7f50;
     color: white;
     border: none;
@@ -68,15 +72,12 @@ button {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    width: 100%;
-    max-width: 300px;
-    margin: 10px 0;
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background: #ff6347;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* Các lựa chọn trả lời */
@@ -88,34 +89,100 @@ button:hover {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: white;
 }
 
+/* Khi hover vào các lựa chọn trả lời */
 .answer-option:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
 /* Lựa chọn đã chọn */
 .selected {
-    background: rgba(0, 123, 255, 0.5);
-    border-color: #007BFF;
+    background: rgba(159, 206, 255, 0.5);
+    border-color: #394f66;
     font-weight: bold;
 }
 
-/* Con trỏ giả */
+/* Cấu hình cho phần tử con trỏ giả (cursor giả) */
 .cursor {
     position: absolute;
     width: 48px;
     height: 48px;
     background-image: url('pen.png');
     background-size: cover;
+    border-radius: 10%;
     pointer-events: none;
-    transition: transform 0.3s ease;
+    transition: transform 5s ease;
+    will-change: transform;
 }
 
-/* Footer */
+/* Hiệu ứng quay khi di chuột */
+@keyframes move-up {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes move-down {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-25deg);
+    }
+}
+
+/* Phần nội dung */
+.content {
+    text-align: left;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Tiêu đề */
+h1, .title {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Các đoạn văn */
+p {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.8;
+    font-family: 'Georgia', serif;
+}
+
+/* Nhận xét kết quả và điểm */
+#result-message {
+    font-size: 1.5rem; /* Kích thước chữ lớn */
+    color: #ff0000;    /* Màu đỏ */
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.3); /* Đổ bóng nhẹ */
+}
+
+/* Cấu hình cuộn cho body */
+body {
+    overflow-y: auto;
+}
+
+/* Thêm phần padding ở dưới cùng của trang để không bị cắt khi cuộn */
+.fake-content {
+    height: 2000px;
+    background: linear-gradient(to bottom, #e0e0e0, #f4f4f4);
+}
+
+/* Dòng chữ "By_Wang2k8" ở góc dưới bên phải */
 footer {
     position: fixed;
     bottom: 10px;
@@ -124,54 +191,4 @@ footer {
     color: #888;
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Media Queries - Điều chỉnh cho màn hình nhỏ hơn */
-@media (max-width: 768px) {
-    h1, .title {
-        font-size: 1.8rem;
-    }
-
-    .quiz-container, #result-box {
-        padding: 15px;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-
-    .answer-option {
-        font-size: 0.9rem;
-        padding: 12px;
-    }
-
-    footer {
-        font-size: 0.8rem;
-    }
-}
-
-/* Media Queries - Điều chỉnh cho màn hình rất nhỏ (dưới 480px) */
-@media (max-width: 480px) {
-    h1, .title {
-        font-size: 1.6rem;
-    }
-
-    .quiz-container, #result-box {
-        padding: 10px;
-    }
-
-    button {
-        font-size: 0.85rem;
-        padding: 8px;
-    }
-
-    .answer-option {
-        font-size: 0.85rem;
-        padding: 10px;
-    }
-
-    footer {
-        font-size: 0.7rem;
-    }
 }
