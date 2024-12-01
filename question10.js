@@ -1,5 +1,5 @@
 window.question10 = {
-    text: "Câu 'Cho mình ăn mí' là í gì?",
+    text: "Câu ''Cho mình ăn mí'' là í gì?",
     answers: [
         { text: "Cho mình xin miếng", correct: false },
         { text: "Cho mình ăn với", correct: true },
