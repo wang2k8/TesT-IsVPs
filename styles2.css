@@ -1,0 +1,59 @@
+/* Cấu hình mặc định */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Chỉ ẩn cuộn ngang, cho phép cuộn dọc */
+}
+
+/* Vị trí của phần tử con trỏ (cursor giả) */
+.cursor {
+    position: fixed; /* Con trỏ giả cố định, không cuộn theo nội dung */
+    width: 64px;
+    height: 64px;
+    background-image: url('pencil.png'); /* Hình bút */
+    background-size: cover;
+    border-radius: 10%;
+    pointer-events: none;
+    transition: transform 0.2s ease-out; /* Hiệu ứng mượt khi di chuyển */
+    will-change: transform;
+    z-index: 1000; /* Luôn ở trên cùng */
+}
+
+/* Hiệu ứng quay góc 20 độ khi di chuột từ dưới lên trên */
+@keyframes move-up {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+/* Hiệu ứng quay góc -20 độ khi di chuột từ trên xuống dưới */
+@keyframes move-down {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-60deg);
+    }
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+}

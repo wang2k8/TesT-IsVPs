@@ -1,0 +1,135 @@
+/* Cấu hình mặc định cho body và html */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%; /* Đảm bảo chiều cao của trang là 100% */
+    min-height: 100vh; /* Đảm bảo trang có chiều cao tối thiểu là chiều cao màn hình */
+    background-color: #f4f4f4; /* Màu nền sáng cho trang */
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
+}
+
+/* Container của quiz */
+.quiz-container, #result-box {
+    background: #fff; /* Màu nền trắng */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng nhẹ */
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    border: 1px solid #ccc; /* Đường viền nhẹ */
+    background-image: url('https://www.transparenttextures.com/patterns/sandstone.png'); /* Hiệu ứng nền giấy */
+    margin: 20px auto; /* Căn giữa container */
+}
+
+/* Ẩn các phần tử không cần thiết */
+.hidden {
+    display: none;
+}
+
+/* Phần tải trang */
+#loading {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Nút */
+button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Các lựa chọn trả lời */
+.answer-option {
+    margin: 10px 0;
+    padding: 12px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.answer-option:hover {
+    background: #f1f1f1;
+    transform: scale(1.05); /* Tăng kích thước nhẹ khi hover */
+}
+
+/* Lựa chọn đã chọn */
+.selected {
+    background: #d1e7fd;
+    border-color: #007BFF;
+}
+
+/* Cấu hình cho phần tử con trỏ giả (cursor giả) */
+.cursor {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-image: url('pen.png'); /* Hình ảnh của con trỏ giả */
+    background-size: cover;
+    border-radius: 10%;
+    pointer-events: none;
+    transition: transform 5s ease; /* Hiệu ứng chuyển động */
+    will-change: transform;
+}
+
+/* Hiệu ứng quay khi di chuột */
+@keyframes move-up {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes move-down {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-25deg);
+    }
+}
+
+/* Phần nội dung */
+.content {
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+/* Tiêu đề */
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Các đoạn văn */
+p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Cấu hình cuộn cho body */
+body {
+    overflow-y: auto; /* Đảm bảo có thể cuộn theo chiều dọc */
+}
+
+/* Thêm phần padding ở dưới cùng của trang để không bị cắt khi cuộn */
+.fake-content {
+    height: 2000px; /* Đảm bảo đủ chiều cao để cuộn */
+    background: linear-gradient(to bottom, #e0e0e0, #f4f4f4);
+}
