@@ -192,3 +192,53 @@ footer {
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+/* Đáp ứng cho màn hình nhỏ hơn 768px (máy tính bảng và điện thoại) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .answer-option {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    #result-message {
+        font-size: 1.3rem;
+    }
+
+    .quiz-container {
+        padding: 15px;
+    }
+}
+
+/* Đáp ứng cho màn hình nhỏ hơn 480px (điện thoại nhỏ) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    .answer-option {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #result-message {
+        font-size: 1.2rem;
+    }
+
+    .quiz-container {
+        padding: 10px;
+    }
+}
