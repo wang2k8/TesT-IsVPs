@@ -3,14 +3,14 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height: 100%; /* Đảm bảo chiều cao của trang là 100% */
-    min-height: 100vh; /* Đảm bảo trang có chiều cao tối thiểu là chiều cao màn hình */
-    background-image: url('TamDao.png'); /* Đặt hình ảnh TamDao.png làm nền */
-    background-size: cover; /* Lấp đầy toàn bộ màn hình */
-    background-position: center; /* Căn giữa hình ảnh */
-    background-attachment: fixed; /* Giữ hình nền khi cuộn trang */
-    overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
-    position: relative; /* Để có thể tạo hiệu ứng với các phần tử con */
+    height: 100%;
+    min-height: 100vh;
+    background-image: url('TamDao.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Hiệu ứng mờ (blur) cho nền */
@@ -24,35 +24,24 @@ body::before {
     background-image: url('TamDao.png');
     background-size: cover;
     background-position: center;
-    filter: blur(30px); /* Độ mờ 30px */
-    opacity: 0.64; /* Độ mờ 64% */
-    z-index: -1; /* Để nền không chồng lên các phần tử khác */
-    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Hiệu ứng chuyển động khi thay đổi */
-}
-
-/* Khi di chuột vào phần tử, làm rõ nền */
-body:hover::before {
-    filter: blur(0px); /* Xóa mờ khi hover */
-    opacity: 1; /* Làm rõ nền khi hover */
+    filter: blur(20px);
+    opacity: 0.7;
+    z-index: -1;
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* Container của quiz */
 .quiz-container, #result-box {
-    background: rgba(0, 0, 0, 0.6); /* Nền tối trong suốt (60%) */
-    padding: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Tạo hiệu ứng bóng nhẹ */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 600px;
     text-align: center;
-    border: 1px solid #ccc; /* Đường viền nhẹ */
-    margin: 20px auto; /* Căn giữa container */
-    color: white; /* Màu chữ trắng */
-}
-
-/* Ẩn các phần tử không cần thiết */
-.hidden {
-    display: none;
+    border: 1px solid #ccc;
+    margin: 40px auto;
+    color: white;
 }
 
 /* Phần tải trang */
@@ -62,118 +51,71 @@ body:hover::before {
     color: #e6e6e6;
 }
 
+/* Tiêu đề */
+h1, .title {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 /* Nút */
 button {
-    padding: 12px 24px;
-    background: #ff7f50; /* Màu cam dịu */
+    padding: 12px 20px;
+    background: #ff7f50;
     color: white;
     border: none;
-    border-radius: 6px; /* Góc bo tròn mềm hơn */
+    border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    transition: background 0.3s ease, transform 0.3s ease; /* Hiệu ứng khi hover */
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background: #ff6347; /* Màu cam đậm hơn khi hover */
-    transform: scale(1.1); /* Phóng to nhẹ khi hover */
+    background: #ff6347;
+    transform: scale(1.05);
 }
 
 /* Các lựa chọn trả lời */
 .answer-option {
     margin: 10px 0;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.2); /* Nền trắng trong suốt */
-    border: 1px dashed #888888; /* Đường viền nét đứt */
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px dashed #888888;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease; /* Hiệu ứng khi hover */
-    font-size: 1.1rem;
-    color: white; /* Màu chữ trắng */
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    color: white;
 }
 
-/* Khi hover vào các lựa chọn trả lời */
 .answer-option:hover {
-    background: rgba(255, 255, 255, 0.3); /* Nền sáng lên khi hover */
-    transform: translateY(-5px); /* Nhẹ nhàng nổi lên khi hover */
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
 }
 
 /* Lựa chọn đã chọn */
 .selected {
-    background: rgba(0, 123, 255, 0.5); /* Màu nền xanh nhẹ khi chọn */
+    background: rgba(0, 123, 255, 0.5);
     border-color: #007BFF;
     font-weight: bold;
 }
 
-/* Cấu hình cho phần tử con trỏ giả (cursor giả) */
+/* Con trỏ giả */
 .cursor {
     position: absolute;
     width: 48px;
     height: 48px;
-    background-image: url('pen.png'); /* Hình ảnh của con trỏ giả */
+    background-image: url('pen.png');
     background-size: cover;
-    border-radius: 10%;
     pointer-events: none;
-    transition: transform 5s ease; /* Hiệu ứng chuyển động */
-    will-change: transform;
+    transition: transform 0.3s ease;
 }
 
-/* Hiệu ứng quay khi di chuột */
-@keyframes move-up {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(50deg);
-    }
-}
-
-@keyframes move-down {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(-25deg);
-    }
-}
-
-/* Phần nội dung */
-.content {
-    text-align: left;
-    padding: 20px;
-    font-size: 1.2rem;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* Tiêu đề */
-h1, .title {
-    font-size: 2.5rem;
-    color: #fff; /* Chữ trắng */
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho tiêu đề */
-}
-
-/* Các đoạn văn */
-p {
-    font-size: 1.2rem;
-    color: #fff;
-    line-height: 1.8;
-    font-family: 'Georgia', serif; /* Phông chữ cổ điển cho đoạn văn */
-}
-
-/* Cấu hình cuộn cho body */
-body {
-    overflow-y: auto; /* Đảm bảo có thể cuộn theo chiều dọc */
-}
-
-/* Thêm phần padding ở dưới cùng của trang để không bị cắt khi cuộn */
-.fake-content {
-    height: 2000px; /* Đảm bảo đủ chiều cao để cuộn */
-    background: linear-gradient(to bottom, #e0e0e0, #f4f4f4);
-}
-
-/* Dòng chữ "By_Wang2k8" ở góc dưới bên phải */
+/* Footer */
 footer {
     position: fixed;
     bottom: 10px;
@@ -181,5 +123,55 @@ footer {
     font-size: 1rem;
     color: #888;
     font-family: 'Courier New', Courier, monospace;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ cho chữ */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries - Điều chỉnh cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    h1, .title {
+        font-size: 1.8rem;
+    }
+
+    .quiz-container, #result-box {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .answer-option {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+/* Media Queries - Điều chỉnh cho màn hình rất nhỏ (dưới 480px) */
+@media (max-width: 480px) {
+    h1, .title {
+        font-size: 1.6rem;
+    }
+
+    .quiz-container, #result-box {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .answer-option {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.7rem;
+    }
 }
