@@ -28,7 +28,7 @@ body, html {
         transform: rotate(0deg);
     }
     100% {
-        transform: rotate(90deg);
+        transform: rotate(30deg);
     }
 }
 
