@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài Kiểm Tra Ngôn Ngữ Địa Phương Vĩnh Phúc</title>
-    
+
     <!-- Liên kết CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles2.css"> <!-- CSS cho con chuột giả -->
@@ -37,20 +38,21 @@
     <script src="question25.js" defer></script>
     <script src="main.js" defer></script> <!-- JavaScript chính -->
 </head>
+
 <body>
     <!-- Phần tải câu hỏi -->
     <div id="loading">Đang tải câu hỏi...</div>
 
     <!-- Container của bài kiểm tra -->
     <div class="quiz-container hidden">
-        <h1>Bài Kiểm Tra Ngôn Ngữ Địa Phương Vĩnh Phúc</h1>
+        <h1 class="title">Bài Kiểm Tra Ngôn Ngữ Địa Phương Vĩnh Phúc</h1>
         <div id="question-container"></div>
         <button id="submit-btn">Nộp bài</button>
     </div>
 
     <!-- Container kết quả -->
     <div id="result-box" class="hidden">
-        <h2>Kết quả</h2>
+        <h2 class="title">Kết quả</h2>
         <p id="result-message"></p>
         <button id="retry-btn">Làm lại</button>
     </div>
@@ -64,4 +66,5 @@
     <!-- Script bổ sung -->
     <script src="script.js" defer></script>
 </body>
+
 </html>
